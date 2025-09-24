@@ -1,10 +1,6 @@
-import "./App.css";
+import Body from "./components/Body";
 
 const App = () => {
-  return (
-    <div>
-      <p className="text-red-300">Namaste Netflix</p>
-    </div>
-  );
+  return <Body />;
 };
 export default App;
