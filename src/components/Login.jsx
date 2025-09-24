@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Header from "./Header";
+import { checkValidData } from "../utils/validate";
 
 const Login = () => {
   const [signInForm, setSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
   const toggleSignInForm = () => {
     setSignInForm(!signInForm);
+  };
+
+  const email = useRef(null);
+  const password = useRef(null);
+  const handleButtonClick = () => {
+    const message = checkValidData(email.current.value, password.current.value);
+    setErrorMessage(message);
   };
   return (
     <div className="relative h-screen w-full">
@@ -20,7 +29,10 @@ const Login = () => {
       <Header />
 
       <div className="relative flex justify-center items-center h-full">
-        <form className="bg-black/80 p-8 rounded-md flex flex-col gap-4 w-full max-w-md">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="bg-black/80 p-8 rounded-md flex flex-col gap-4 w-full max-w-md"
+        >
           <h2 className="text-white text-2xl font-bold mb-4 text-center">
             {signInForm ? "Sign In" : "Sign Up"}{" "}
           </h2>
@@ -34,17 +46,22 @@ const Login = () => {
           )}
 
           <input
+            ref={email}
             type="text"
             placeholder="Enter your email"
             className="p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-orange-400"
           />
           <input
+            ref={password}
             type="password"
             placeholder="Enter your password"
             className="p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-orange-500"
           />
-
-          <button className="bg-orange-500 hover:bg-orange-600 transition text-white py-2 rounded font-semibold">
+          <p className="text-red-500">{errorMessage}</p>
+          <button
+            className="bg-orange-500 hover:bg-orange-600 transition text-white py-2 rounded font-semibold"
+            onClick={handleButtonClick}
+          >
             {signInForm ? "Sign In" : "Sign Up"}
           </button>
 
