@@ -10,6 +10,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_LOGIN } from "../utils/constant";
 
 const Login = () => {
   const [signInForm, setSignInForm] = useState(true);
@@ -81,11 +82,7 @@ const Login = () => {
   return (
     <div className="relative h-screen w-full">
       <div className="absolute inset-0">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/c95abc7a-8124-4630-bb7a-3b160bdc6de3/web/IN-en-20250915-TRIFECTA-perspective_d3d87aa7-58ed-4c6b-98dc-231ed05ba675_large.jpg"
-          alt="bg"
-          className="h-full w-full object-cover"
-        />
+        <img src={BG_LOGIN} alt="bg" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
