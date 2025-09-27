@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import Header from "./Header";
-import { API_OPTIONS } from "../utils/constant";
-import { useDispatch } from "react-redux";
-import { addNowPlayingMovies } from "../utils/moviesSlice";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
+  useNowPlayingMovies();
   return (
     <div>
       <Header />
+      <MainContainer />
+      <SecondaryContainer />
     </div>
   );
 };
