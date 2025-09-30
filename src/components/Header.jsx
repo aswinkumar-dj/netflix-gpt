@@ -8,11 +8,13 @@ import { useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
+import { toggleGptSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const gptSearchButton = useSelector((store) => store.gpt.showGptSearch);
   const handleClick = () => {
     signOut(auth)
       .then(() => {
@@ -22,7 +24,9 @@ const Header = () => {
         navigate("/error");
       });
   };
-
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearchView());
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -45,6 +49,12 @@ const Header = () => {
       </div>
       {user && (
         <div className="flex items-center space-x-4 text-white">
+          <button
+            className="hover:bg-orange-400 w-30 bg-gradient-to-tr from-orange-400 to-orange-600/60 text-black px-4 py-2 rounded mx-6"
+            onClick={handleGptSearchClick}
+          >
+            {gptSearchButton ? "Browse" : "GPT-Search"}
+          </button>
           <img
             alt="user-icon"
             src={usericon}
