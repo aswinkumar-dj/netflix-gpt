@@ -53,7 +53,7 @@ const Header = () => {
             className="hover:bg-orange-400 w-30 bg-gradient-to-tr from-orange-400 to-orange-600/60 text-black px-4 py-2 rounded mx-6"
             onClick={handleGptSearchClick}
           >
-            {gptSearchButton ? "Browse" : "GPT-Search"}
+            {gptSearchButton ? "Home Page" : "GPT-Search"}
           </button>
           <img
             alt="user-icon"

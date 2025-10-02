@@ -1,7 +1,19 @@
 import React from "react";
+import GptSearchBar from "./GptSearchBar";
+import GptMovieSuggestion from "./GptMovieSuggestion";
+import { BG_LOGIN } from "../utils/constant";
 
 const GptSearch = () => {
-  return <div>GptSearch</div>;
+  return (
+    <div>
+      <div className="absolute -z-10">
+        <img src={BG_LOGIN} alt="bg" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-black/80" />
+      </div>
+      <GptSearchBar />
+      <GptMovieSuggestion />
+    </div>
+  );
 };
 
 export default GptSearch;
