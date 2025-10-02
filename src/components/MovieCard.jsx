@@ -2,6 +2,7 @@ import React from "react";
 import { POSTER_CDN } from "../utils/constant";
 
 const MovieCard = ({ posterPath }) => {
+  if (!posterPath) return null;
   return (
     <div
       className="w-40 cursor-pointer transform transition duration-300 
