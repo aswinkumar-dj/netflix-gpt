@@ -4,7 +4,7 @@ NetflixGPT is an AI-powered movie recommendation and search application.
 It integrates **TMDB API** for fetching movies/TV data and **Groq API (OpenAI-compatible)** for GPT-powered intelligent search, recommendations, and summaries.  
 Built with **React, Redux Toolkit, Tailwind CSS, and Vite**, it provides a smooth, Netflix-like experience.  
 
-🌐 **Live Demo:** [NetflixGPT on Vercel](https://your-vercel-deployed-link.vercel.app)  
+🌐 **Live Demo:** [NetflixGPT on Vercel](https://netflix-gpt-one-sooty.vercel.app/)  
 ⚠️ *Note: The live link may sometimes be blocked or limited due to real API restrictions.*  
 
 ---
