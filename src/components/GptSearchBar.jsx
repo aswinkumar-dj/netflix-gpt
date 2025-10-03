@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import openai from "../utils/openAi";
-import client from "../utils/openAi";
+
+import client from "../utils/openaiasst";
 import { API_OPTIONS } from "../utils/constant";
 import { addGptMovieResults } from "../utils/gptSlice";
 import { useDispatch } from "react-redux";
