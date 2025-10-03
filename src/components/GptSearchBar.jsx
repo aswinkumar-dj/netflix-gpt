@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import openai from "../utils/openaiasst";
+
 import client from "../utils/openaiasst";
 import { API_OPTIONS } from "../utils/constant";
 import { addGptMovieResults } from "../utils/gptSlice";
