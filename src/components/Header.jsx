@@ -53,7 +53,7 @@ const Header = () => {
       {user && (
         <div className="flex flex-col md:flex-row items-center md:space-x-4 text-white mt-4 md:mt-0 gap-3 md:gap-0">
           <button
-            className="hover:bg-orange-400 w-40 md:w-auto bg-gradient-to-tr from-orange-400 to-orange-600/60 text-black px-4 py-2 rounded"
+            className="hover:bg-orange-400 w-40 md:w-auto bg-gradient-to-tr from-orange-400 md:mt-4  to-orange-600/60 text-black px-4 py-2 rounded"
             onClick={handleGptSearchClick}
           >
             {gptSearchButton ? "Home Page" : "GPT-Search"}
