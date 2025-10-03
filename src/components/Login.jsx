@@ -35,8 +35,6 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed up
-
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
@@ -49,12 +47,8 @@ const Login = () => {
               );
             })
             .catch((error) => {
-              // An error occurred
-              // ...
               setErrorMessage(error);
             });
-
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -68,9 +62,7 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -88,13 +80,13 @@ const Login = () => {
 
       <Header />
 
-      <div className="relative flex justify-center items-center h-full">
+      <div className="relative flex justify-center items-center h-full px-4 sm:px-6">
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="bg-black/80 p-8 rounded-md flex flex-col gap-4 w-full max-w-md"
+          className="bg-black/80 p-6 sm:p-8 rounded-md flex flex-col gap-4 w-full max-w-sm sm:max-w-md"
         >
-          <h2 className="text-white text-2xl font-bold mb-4 text-center">
-            {signInForm ? "Sign In" : "Sign Up"}{" "}
+          <h2 className="text-white text-xl sm:text-2xl font-bold mb-4 text-center">
+            {signInForm ? "Sign In" : "Sign Up"}
           </h2>
 
           {!signInForm && (
@@ -102,7 +94,7 @@ const Login = () => {
               ref={name}
               type="text"
               placeholder="Enter your Name"
-              className="p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-orange-400"
+              className="p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-orange-400 text-sm sm:text-base"
             />
           )}
 
@@ -110,23 +102,23 @@ const Login = () => {
             ref={email}
             type="text"
             placeholder="Enter your email"
-            className="p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-orange-400"
+            className="p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-orange-400 text-sm sm:text-base"
           />
           <input
             ref={password}
             type="password"
             placeholder="Enter your password"
-            className="p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-orange-500"
+            className="p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-orange-500 text-sm sm:text-base"
           />
-          <p className="text-red-500">{errorMessage}</p>
+          <p className="text-red-500 text-sm">{errorMessage}</p>
           <button
-            className="bg-orange-500 hover:bg-orange-600 transition text-white py-2 rounded font-semibold"
+            className="bg-orange-500 hover:bg-orange-600 transition text-white py-2 rounded font-semibold text-sm sm:text-base"
             onClick={handleButtonClick}
           >
             {signInForm ? "Sign In" : "Sign Up"}
           </button>
 
-          <p className="text-gray-400 text-sm text-center">
+          <p className="text-gray-400 text-xs sm:text-sm text-center">
             {signInForm ? "New to Netflix?" : "Already Registered?"}
             <span
               className="text-white hover:underline cursor-pointer"
